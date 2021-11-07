@@ -9,3 +9,9 @@ swap (i, c) = (c, i)
 -- 3
 threeEqual :: (Int, Int, Int) -> Bool
 threeEqual (x, y, z) = x == y && y == z
+
+-- 4
+triangleField :: (Double, Double, Double) -> Double
+triangleField (a, b, c) = sqrt ((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c) / 2 ^ 4)
+
+
