@@ -45,3 +45,12 @@ selectEven :: Integral t => [t] -> [t]
 selectEven [] = []
 selectEven (x:xs) | x `mod` 2 == 0 = [x] ++ selectEven xs
                   | otherwise = selectEven xs
+
+ariMean :: Fractional a => [a] -> a 
+ariMean a = (sum' a) / (fromIntegral (length a))
+
+geoMean :: Floating a => [a] -> a
+geoMean a = (prod' a) ** (1 / fromIntegral (length a))
+
+means :: Floating a => [a] -> (a, a)
+means a = (ariMean a, geoMean a)

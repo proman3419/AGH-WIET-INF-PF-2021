@@ -8,3 +8,19 @@ isPrime :: Int -> Bool
 isPrime n | n <= 1 = False
           | otherwise = length [i | i <- [2..nSqrt], n `mod` i == 0] == 0
     where nSqrt = floor (sqrt (fromIntegral n))
+
+cntPrimes :: Int -> Int
+cntPrimes n = length [i | i <- [1..n], isPrime i]
+
+primes :: Int -> [Int]
+primes n = eratoSieve [2..n]
+    where
+        eratoSieve :: [Int] -> [Int]
+        eratoSieve [] = []
+        eratoSieve (p : xs) = p : eratoSieve [x | x <- xs, x `mod` p /= 0]
+
+cntPrimes2 :: Int -> Int
+cntPrimes2 n = length (primes n)
+
+allEqual :: Eq a => [a] -> Bool
+allEqual a = length [e | e <- a, e == (head a)] == length a
