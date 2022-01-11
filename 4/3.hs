@@ -61,5 +61,3 @@ insert new (NodeBT n lt rt) | new < n = NodeBT n (insert new lt) rt
 list2BST :: Ord a => [a] -> BinTree a -- list to Binary Search Tree (BST)
 list2BST [] = EmptyBT
 list2BST (x:xs) = insert x (list2BST xs)
-
-
